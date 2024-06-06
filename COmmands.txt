@@ -1,0 +1,13 @@
+Shutdown
+Restart System 
+Sleep System
+Empty Recycle Bin 
+Find Duplicate of this image in this system 
+File Search
+Rename A to B
+Reduce Volume
+Reduce Brightness 
+Set Alarm 
+Set A as wallpaper
+Clear temp 
+Clear %temp%
