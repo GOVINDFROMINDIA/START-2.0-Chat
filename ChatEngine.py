@@ -51,14 +51,15 @@ def reduce_brightness(factor):
     Returns:
     float: The new brightness level.
     """
-    # Assuming initial brightness is 100
-    initial_brightness = 100
+    initial_brightness = sbc.get_brightness(display=0)
     
     # Ensure the factor is between 0 and 1
     if not (0 <= factor <= 1):
         raise ValueError("Factor must be between 0 and 1")
     
     new_brightness = initial_brightness * (1 - factor)
+    sbc.set_brightness(new_brightness, display=0)
+    
     return new_brightness
 
 def set_alarm(time_str):
