@@ -66,6 +66,20 @@ def clear_env_temp():
 # Load pre-trained model
 nlp = pipeline("fill-mask", model="distilbert-base-uncased")
 
+def select_image():
+    root = tk.Tk()
+    root.withdraw()  # Hide the root window
+    image_path = filedialog.askopenfilename(
+        title="Select an Image",
+        filetypes=[("Image Files", "*.jpg;*.jpeg;*.png;*.bmp;*.gif")]
+    )
+    if image_path:
+        set_wallpaper(image_path)
+        print(f"Wallpaper set to: {image_path}")
+    else:
+        print("No image selected.")
+
+
 def interpret_user_input(user_input):
     if "shutdown" in user_input:
         return shutdown_system, []
@@ -94,8 +108,8 @@ def interpret_user_input(user_input):
         time_str = input("Please provide the time in HH:MM:SS format: ")
         return set_alarm, [time_str]
     elif "set wallpaper" in user_input:
-        image_path = input("Please provide the image path: ")
-        return set_wallpaper, [image_path]
+        #image_path = input("Please provide the image path: ")
+        return select_image, []
     elif "clear temp" in user_input:
         return clear_temp, []
     elif "clear env temp" in user_input:
