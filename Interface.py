@@ -25,6 +25,10 @@ def run_search():
 def run_assistant():
     subprocess.Popen(["python", "assistant.py"])
 
+# Function to run troubleshoot.py
+def run_troubleshoot():
+    subprocess.Popen(["python", "troubleshoot.py"])
+
 # Header Frame
 header_frame = ctk.CTkFrame(app, height=50)
 header_frame.pack(fill="x", padx=10, pady=5)
@@ -60,6 +64,7 @@ box3 = ctk.CTkFrame(box_frame, corner_radius=10)
 box3.pack(fill="x", pady=5)
 box3_label = ctk.CTkLabel(box3, text="Trouble Shoot 🔧", font=("Arial", 16))
 box3_label.pack(pady=20, padx=10)
+box3_label.bind("<Button-1>", lambda e: run_troubleshoot())
 
 # Run the application
 app.mainloop()
