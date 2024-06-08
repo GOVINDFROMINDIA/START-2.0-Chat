@@ -21,6 +21,10 @@ def toggle_theme():
 def run_search():
     subprocess.Popen(["python", "Search.py"])
 
+# Function to run assistant.py
+def run_assistant():
+    subprocess.Popen(["python", "assistant.py"])
+
 # Header Frame
 header_frame = ctk.CTkFrame(app, height=50)
 header_frame.pack(fill="x", padx=10, pady=5)
@@ -42,6 +46,7 @@ box1 = ctk.CTkFrame(box_frame, corner_radius=10)
 box1.pack(fill="x", pady=5)
 box1_label = ctk.CTkLabel(box1, text="Windows Assistant 👋", font=("Arial", 16))
 box1_label.pack(pady=20, padx=10)
+box1_label.bind("<Button-1>", lambda e: run_assistant())
 
 # Box 2: File/Folder Search
 box2 = ctk.CTkFrame(box_frame, corner_radius=10)
