@@ -40,9 +40,26 @@ def reduce_volume():
         volume = session._ctl.QueryInterface(ISimpleAudioVolume)
         volume.SetMasterVolume(0.5, None)  # Reduce to 50%
 
-def reduce_brightness():
-    # Use third-party libraries or APIs to adjust brightness
-    pass
+def reduce_brightness(factor):
+    """
+    Reduce the brightness by the given factor.
+
+    Parameters:
+    factor (float): The factor by which to reduce the brightness.
+                    It should be a value between 0 and 1.
+    
+    Returns:
+    float: The new brightness level.
+    """
+    # Assuming initial brightness is 100
+    initial_brightness = 100
+    
+    # Ensure the factor is between 0 and 1
+    if not (0 <= factor <= 1):
+        raise ValueError("Factor must be between 0 and 1")
+    
+    new_brightness = initial_brightness * (1 - factor)
+    return new_brightness
 
 def set_alarm(time_str):
     scheduler = BackgroundScheduler()
